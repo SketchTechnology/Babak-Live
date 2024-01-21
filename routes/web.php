@@ -26,7 +26,7 @@ use App\Http\Controllers\Frontend\Requests\RequestController;
 // routes for front view 
 Route::get('/', function () {
     return view('front-template.index');
-});
+})->name('home');
 
 Route::get('/mainland', function () {
     return view('front-template.mainland');
