@@ -83,32 +83,22 @@
                             <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $employee->jobTitle->name}}</td>
                             <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $employee->created_at }}</td>
 
-                            <td class="p-4 space-x-2 whitespace-nowrap">
-                                <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">{{__('Action')}} <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                                    </svg>
-                                    </button>
+                            <td class="p-4 space-x-2 whitespace-nowrap flex">
+                                
 
-                                    <!-- Dropdown menu -->
-                                    <div id="dropdownHover" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
-                                          <li>
-                                            <a href="{{ route('employee.show', $employee->id) }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{__('Review')}}</a>
-                                          </li>
-                                          <li>
-                                            <a href="{{ route('employee.edit', $employee->id) }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{__('Edit')}}</a>
-                                          </li>
-                                          <li>
-
-                                            <form action="{{ route('employee.destroy', $employee->id) }}" method="POST">
-                                                @csrf
-                                                @method('delete')
-                                                <button class="dropdown-item"><i class="fa-solid fa-trash fa-lg p-2"></i>{{__('Delete')}}</button>
-                                                </form>
-                                          </li>
-
-                                        </ul>
-                                    </div>
+                                           
+   
+ 
+ 
+                                    <a href="{{ route('employee.show', $employee->id) }}" class="text-white bg-emerald-700 hover:bg-yellow-500 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">{{__('Review')}}</a>
+                                    <a href="{{ route('employee.edit', $employee->id) }}" class="text-white bg-blue-700 hover:bg-yellow-500 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">{{__('Edit')}}</a>
+ 
+                                     <form action="{{ route('employee.destroy', $employee->id) }}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button class="text-white bg-red-700 hover:bg-yellow-500 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">{{__('Delete')}}</button>
+                                    </form>
+                                     
                             </td>
                         </tr>
                         @endforeach

@@ -47,6 +47,7 @@ class PaymentController extends Controller
         $totalAmount = Session::get('total_amount');
 
          $user = Auth::user();
+ 
 
          $user->wallet +=$totalAmount/100 ;
          $user->save();

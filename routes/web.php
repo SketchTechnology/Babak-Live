@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SuperController;
 use App\Http\Controllers\Frontend\Sponsore\SponsoreController;
 use App\Http\Controllers\Frontend\Employees\EmployerController;
+use App\Http\Controllers\Frontend\LockedController;
 use App\Http\Controllers\Frontend\PaymentController;
 use App\Http\Controllers\Frontend\PaymentNotificationsController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -143,23 +144,25 @@ Route::get('/dashboard/sponsored/files/show', function () {
 
 
 
-Route::group(['prefix'=> LaravelLocalization::setLocale()],function(){
+Route::group(['prefix'=> LaravelLocalization::setLocale(),'middleware'=>['auth','checkUserStatus']],function(){
 
     Route::get('/dashboard', function () {
         return view('user.dashboard');
-    })->middleware(['auth', 'verified'])->name('dashboard');
+    })->name('dashboard');
     
 //sponsored controller
-Route::resource('dashboard/sponsore',SponsoreController::class)->middleware(['auth', 'verified']);
+Route::resource('dashboard/sponsore',SponsoreController::class);
 
 //employees
-Route::resource('dashboard/employee',EmployerController::class )->middleware(['auth', 'verified']);
+Route::resource('dashboard/employee',EmployerController::class );
 
 //companies
 Route::resource('dashboard/companies', CompanyController::class);
 
 
-// Payment
+
+
+// Payment for wallet
 Route::get('dashboard/payment', [PaymentController::class, 'index'])->name('checkout');
 Route::post('/session',  [PaymentController::class, 'session'])->name('session');
 Route::get('/success', [PaymentController::class, 'success'])->name('success');
@@ -171,8 +174,25 @@ Route::post('/mark-notifications-as-read', [PaymentNotificationsController::clas
 
 
 
-}) ;
 
 // Requests 
 
 Route::get("/requests",[RequestController::class,'index'])->name('requests.index') ;
+
+
+
+
+}) ;
+
+// Payment for registeration
+Route::get('locked/payment', [LockedController::class, 'index'])->name('locked.checkout');
+Route::post('locked/session',  [LockedController::class, 'session'])->name('locked.session');
+Route::get('locked/success', [LockedController::class, 'success'])->name('locked.success');
+
+
+
+//lock screen
+ 
+Route::get('/locked', function () {
+    return view('frontend.dashboard.pages.lock.lock');
+})->name('locked');
