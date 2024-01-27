@@ -27,7 +27,7 @@
                                         clip-rule="evenodd"></path>
                                 </svg>
                                 <a href="#"
-                                    class="ml-1 text-gray-700 hover:text-primary-600 md:ml-2 dark:text-gray-300 dark:hover:text-white">{{'Admins'}}</a>
+                                    class="ml-1 text-gray-700 hover:text-primary-600 md:ml-2 dark:text-gray-300 dark:hover:text-white">{{ 'Admins' }}</a>
                             </div>
                         </li>
 
@@ -35,16 +35,15 @@
                 </nav>
             </div>
             <div class="items-center justify-between block sm:flex md:divide-x md:divide-gray-100 dark:divide-gray-700">
-                <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">   {{__('admins')}}</h1>
+                <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white"> {{ __('admins') }}</h1>
                 @can('admins.create')
-
-                <a href="{{ route('admins.create') }}" id="createProductButton"
-                    class="text-white bg-blue-700 hover:bg-yellow-500 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
-                    type="button" data-drawer-target="drawer-create-product-default"
-                    data-drawer-show="drawer-create-product-default" aria-controls="drawer-create-product-default"
-                    data-drawer-placement="right">
-                      {{__('Add New Admin')}}
-                </a>
+                    <a href="{{ route('admins.create') }}" id="createProductButton"
+                        class="text-white bg-blue-700 hover:bg-yellow-500 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
+                        type="button" data-drawer-target="drawer-create-product-default"
+                        data-drawer-show="drawer-create-product-default" aria-controls="drawer-create-product-default"
+                        data-drawer-placement="right">
+                        {{ __('Add New Admin') }}
+                    </a>
                 @endcan
 
             </div>
@@ -70,16 +69,16 @@
                                 </th>
                                 <th scope="col"
                                     class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
-                                     {{__('Name')}}
+                                    {{ __('Name') }}
                                 </th>
                                 <th scope="col"
                                     class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
-                                      {{__('Email')}}
+                                    {{ __('Email') }}
                                 </th>
 
                                 <th scope="col"
                                     class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
-                                     {{__('Created At')}}
+                                    {{ __('Created At') }}
                                 </th>
                             </tr>
                         </thead>
@@ -97,7 +96,7 @@
                                         <div class="text-base font-semibold text-gray-900 dark:text-white">
                                             {{ $admin->id }}
                                         </div>
-                                     </td>
+                                    </td>
                                     <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         {{ $admin->name }}</td>
                                     <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -107,55 +106,35 @@
                                     <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         {{ \Carbon\Carbon::parse($admin->created_at)->format('Y-m-d') }}</td>
 
-                                    <td class="p-4 space-x-2 whitespace-nowrap">
-                                        <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover"
-                                            data-dropdown-trigger="hover"
-                                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                                            type="button"> {{__('Action')}} <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true"
-                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                                    stroke-width="2" d="m1 1 4 4 4-4" />
-                                            </svg>
-                                        </button>
 
-                                        <!-- Dropdown menu -->
-                                        <div id="dropdownHover"
-                                            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
-                                                aria-labelledby="dropdownHoverButton">
-                                                @can('admins.view')
 
-                                                <li>
-                                                    <a href="{{ route('admins.show', $admin->id) }}"
-                                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"> {{__('Review')}}</a>
-                                                </li>
+                                    <td class="p-4 space-x-2 whitespace-nowrap flex">
 
-                                                @endcan
-                                                @can('admins.update')
-                                                <li>
-                                                    <a href="{{ route('admins.edit', $admin->id) }}"
-                                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">  {{__('Edit')}}</a>
-                                                </li>
 
-                                                @endcan
 
-                                                @can('admins.delete')
 
-                                                <li>
 
-                                                    <form action="{{ route('admins.destroy', $admin->id) }}"
-                                                        method="POST">
-                                                        @csrf
-                                                        @method('delete')
-                                                        <button class="dropdown-item"><i
-                                                                class="fa-solid fa-trash fa-lg p-2"></i> {{__('Delete')}}</button>
-                                                    </form>
-                                                </li>
+                                        @can('admins.view')
+                                            <a href="{{ route('admins.show', $admin->id) }}"
+                                                class="text-white bg-emerald-700 hover:bg-yellow-500 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">{{ __('Review') }}</a>
+                                        @endcan
 
-                                                @endcan
+                                        @can('admins.update')
+                                            <a href="{{ route('admins.edit', $admin->id) }}"
+                                                class="text-white bg-blue-700 hover:bg-yellow-500 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">{{ __('Edit') }}</a>
+                                        @endcan
 
-                                            </ul>
-                                        </div>
+
+                                        @can('admins.delete')
+                                            <form action="{{ route('admins.destroy', $admin->id) }}" method="post">
+                                                @csrf
+                                                @method('delete')
+                                                <button
+                                                    class="text-white bg-red-700 hover:bg-yellow-500 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">{{ __('Delete') }}</button>
+                                            </form>
+                                        @endcan
+
+
                                     </td>
                                 </tr>
                             @endforeach
