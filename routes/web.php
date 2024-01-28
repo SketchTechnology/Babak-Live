@@ -196,3 +196,17 @@ Route::get('locked/success', [LockedController::class, 'success'])->name('locked
 Route::get('/locked', function () {
     return view('frontend.dashboard.pages.lock.lock');
 })->name('locked');
+
+
+
+//files
+
+Route::get('dashboard/companies/{id?}/companyFile/fileForm', 'App\Http\Controllers\Frontend\Dashboard\CompanyFileController@FileForm')->name('companyfile');
+Route::post('dashboard/companies/{id?}/companyFile/fileForm', 'App\Http\Controllers\Frontend\Dashboard\CompanyFileController@addCompanyFile')->name('companyfile.addCompanyFile');
+
+Route::get('dashboard/companies/companyFile/{id?}', 'App\Http\Controllers\Frontend\Dashboard\CompanyFileController@show')->name('companyfile.show');
+Route::post('dashboard/companies/companyFile/renew/{id?}', 'App\Http\Controllers\Frontend\Dashboard\CompanyFileController@renew')->name('companyfile.renew');
+Route::get('dashboard/companies/companyFile/renew_request/{id?}', 'App\Http\Controllers\Frontend\Dashboard\CompanyFileController@renew_request')->name('companyfile.renew_request');
+Route::get('dashboard/companies/companyFile/edit/{id?}', 'App\Http\Controllers\Frontend\Dashboard\CompanyFileController@edit')->name('companyfile.edit');
+Route::put('dashboard/companies/companyFile/edit/{id?}', 'App\Http\Controllers\Frontend\Dashboard\CompanyFileController@update')->name('companyfile.update');
+Route::delete('dashboard/companies/companyFile/{id?}', 'App\Http\Controllers\Frontend\Dashboard\CompanyFileController@destroy')->name('companyfile.destroy');
