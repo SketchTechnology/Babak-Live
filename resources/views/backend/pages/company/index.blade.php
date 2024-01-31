@@ -54,13 +54,7 @@
                     <table class="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-600">
                         <thead class="bg-gray-100 dark:bg-gray-700">
                             <tr>
-                                <th scope="col" class="p-4">
-                                    <div class="flex items-center">
-                                        <input id="checkbox-all" aria-describedby="checkbox-1" type="checkbox"
-                                            class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:focus:ring-primary-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
-                                        <label for="checkbox-all" class="sr-only">checkbox</label>
-                                    </div>
-                                </th>
+                             
                                 <th scope="col"
                                     class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
                                     {{ __('Company Name') }}
@@ -82,13 +76,7 @@
                         <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
                             @foreach ($companies as $company)
                                 <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-                                    <td class="w-4 p-4">
-                                        <div class="flex items-center">
-                                            <input id="id" aria-describedby="checkbox-1" type="checkbox"
-                                                class="w-4 h-4 border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:focus:ring-primary-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600">
-                                            <label for="checkbox" class="sr-only">checkbox</label>
-                                        </div>
-                                    </td>
+                                  
                                     <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
                                         <div class="text-base font-semibold text-gray-900 dark:text-white">
                                             {{ $company->name }}</div>
@@ -113,7 +101,7 @@
 
                                         @can('companies.view')
                                             <a href="{{ route('all_companies.show', $company->id) }}"
-                                                class="text-white bg-emerald-700 hover:bg-yellow-500 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">{{ __('Review') }}</a>
+                                                class="text-white bg-blue-700 hover:bg-yellow-500 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">{{ __('Review') }}</a>
                                         @endcan
 
                                         @can('companies.update')
@@ -142,7 +130,7 @@
         </div>
     </div>
 
-    <div
+    {{-- <div
         class="sticky bottom-0 right-0 items-center w-full p-4 bg-white border-t border-gray-200 sm:flex sm:justify-between dark:bg-gray-800 dark:border-gray-700">
         <div class="flex items-center mb-4 sm:mb-0">
             <a href="#"
@@ -187,5 +175,5 @@
                 </svg>
             </a>
         </div>
-    </div>
+    </div> --}}
 @endsection

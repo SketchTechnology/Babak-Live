@@ -82,12 +82,12 @@
                         <div class="flex items-center space-x-4">
                             <div class="flex items-center">
                                 <input type="radio" id="registered_yes" name="regesterd" value="yes" class="mr-2 focus:ring-primary-600 dark:focus:ring-primary-500" required>
-                                <label for="registered_yes" class="text-sm text-gray-900 dark:text-white">Yes</label>
+                                <label for="registered_yes" class="text-sm text-gray-900 dark:text-white">{{__('Yes')}}</label>
                             </div>
 
                             <div class="flex items-center">
                                 <input type="radio" id="registered_no" name="regesterd" value="no" class="mr-2 focus:ring-primary-600 dark:focus:ring-primary-500" required>
-                                <label for="registered_no" class="text-sm text-gray-900 dark:text-white">No</label>
+                                <label for="registered_no" class="text-sm text-gray-900 dark:text-white">{{__('No')}}</label>
                             </div>
                         </div>
 
