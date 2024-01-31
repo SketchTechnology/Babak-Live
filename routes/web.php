@@ -181,24 +181,6 @@ Route::get("/requests",[RequestController::class,'index'])->name('requests.index
 
 
 
-
-}) ;
-
-// Payment for registeration
-Route::get('locked/payment', [LockedController::class, 'index'])->name('locked.checkout');
-Route::post('locked/session',  [LockedController::class, 'session'])->name('locked.session');
-Route::get('locked/success', [LockedController::class, 'success'])->name('locked.success');
-
-
-
-//lock screen
- 
-Route::get('/locked', function () {
-    return view('frontend.dashboard.pages.lock.lock');
-})->name('locked');
-
-
-
 //files for companies 
 
 Route::get('dashboard/companies/{id?}/companyFile/fileForm', 'App\Http\Controllers\Frontend\Dashboard\CompanyFileController@FileForm')->name('companyfile');
@@ -245,3 +227,23 @@ Route::put('dashboard/sponsore/sponsoreFile/update/{id?}', 'App\Http\Controllers
 
 Route::delete('dashboard/sponsore/sponsoreFile/{id?}', 'App\Http\Controllers\Frontend\Dashboard\Sponsore\SponsoreFileController@destroy')->name('sponsorefile.destroy');
 Route::get('dashboard/sponsore/sponsoreFile/renew_request/{id?}', 'App\Http\Controllers\Frontend\Dashboard\Sponsore\SponsoreFileController@renew_request')->name('sponsorefile.renew_request');
+
+
+
+}) ;
+
+// Payment for registeration
+Route::get('locked/payment', [LockedController::class, 'index'])->name('locked.checkout');
+Route::post('locked/session',  [LockedController::class, 'session'])->name('locked.session');
+Route::get('locked/success', [LockedController::class, 'success'])->name('locked.success');
+
+
+
+//lock screen
+ 
+Route::get('/locked', function () {
+    return view('frontend.dashboard.pages.lock.lock');
+})->name('locked');
+
+
+

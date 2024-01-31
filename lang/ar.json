@@ -122,7 +122,10 @@
     "Please fill valid phone number": "يرجى ملء رقم هاتف صحيح",
     "emailshare": "لن نشارك بريدك الإلكتروني مع أي شخص آخر.",
     "Start Date": "من تاريخ",
+    "Add new file": "اضف ملف جديد" ,
+    "Edit Emploee File":"تعديل الملف" ,
     "End Date": "الى تاريخ",
+    "Add File": "اضافة الملف" ,
     "Filter": "تصفية",
     "File Name": "اسم الملف",
     "File Number": "رقم الملف",
@@ -226,5 +229,8 @@
     "Message": "رسالة",
     "Extra": "إضافي",
     "Edit Profile": "تعديل الملف الشخصي",
-    "Avater": "الصورة الرمزية"
-}
+    "Avater": "الصورة الرمزية" ,
+    "File Info": "معلومات الملف" ,
+    "Download Now" : "التحميل" , 
+    "Edit Company File" : "تعديل الملف"
+ }
