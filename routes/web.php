@@ -199,7 +199,7 @@ Route::get('/locked', function () {
 
 
 
-//files
+//files for companies 
 
 Route::get('dashboard/companies/{id?}/companyFile/fileForm', 'App\Http\Controllers\Frontend\Dashboard\CompanyFileController@FileForm')->name('companyfile');
 Route::post('dashboard/companies/{id?}/companyFile/fileForm', 'App\Http\Controllers\Frontend\Dashboard\CompanyFileController@addCompanyFile')->name('companyfile.addCompanyFile');
@@ -210,3 +210,38 @@ Route::get('dashboard/companies/companyFile/renew_request/{id?}', 'App\Http\Cont
 Route::get('dashboard/companies/companyFile/edit/{id?}', 'App\Http\Controllers\Frontend\Dashboard\CompanyFileController@edit')->name('companyfile.edit');
 Route::put('dashboard/companies/companyFile/edit/{id?}', 'App\Http\Controllers\Frontend\Dashboard\CompanyFileController@update')->name('companyfile.update');
 Route::delete('dashboard/companies/companyFile/{id?}', 'App\Http\Controllers\Frontend\Dashboard\CompanyFileController@destroy')->name('companyfile.destroy');
+
+
+
+
+//files for employees
+ 
+
+Route::get('dashboard/employee/{id?}/employeeFile/fileForm', 'App\Http\Controllers\Frontend\Dashboard\Employees\EmployerFileController@FileForm')->name('employerfile');
+Route::post('dashboard/employee/{id?}/employeeFile/addEmployerFile', 'App\Http\Controllers\Frontend\Dashboard\Employees\EmployerFileController@addEmployerFile')->name('employerfile.addEmployerFile');
+
+Route::get('dashboard/employee/employeeFile/{id?}', 'App\Http\Controllers\Frontend\Dashboard\Employees\EmployerFileController@show')->name('employerfile.show');
+
+Route::post('dashboard/employee/employeeFile/renew/{id?}', 'App\Http\Controllers\Frontend\Dashboard\Employees\EmployerFileController@renew')->name('employerfile.renew');
+
+Route::get('dashboard/employee/employeeFile/edit/{id?}', 'App\Http\Controllers\Frontend\Dashboard\Employees\EmployerFileController@edit')->name('employerfile.edit');
+Route::put('dashboard/employee/employeeFile/update/{id?}', 'App\Http\Controllers\Frontend\Dashboard\Employees\EmployerFileController@update')->name('employerfile.update');
+
+Route::delete('dashboard/employee/employeeFile/{id?}', 'App\Http\Controllers\Frontend\Dashboard\Employees\EmployerFileController@destroy')->name('employerfile.destroy');
+Route::get('dashboard/employee/employeeFile/renew_request/{id?}', 'App\Http\Controllers\Frontend\Dashboard\Employees\EmployerFileController@renew_request')->name('employerfile.renew_request');
+
+
+//files for sponsores
+
+Route::get('dashboard/sponsore/{id?}/sponsoreFile/fileForm', 'App\Http\Controllers\Frontend\Dashboard\Sponsore\SponsoreFileController@FileForm')->name('sponsorefile');
+Route::post('dashboard/sponsore/{id?}/sponsoreFile/addSponsoreFile', 'App\Http\Controllers\Frontend\Dashboard\Sponsore\SponsoreFileController@addSponsoreFile')->name('sponsorefile.addSponsoreFile');
+
+Route::get('dashboard/sponsore/sponsoreFile/{id?}', 'App\Http\Controllers\Frontend\Dashboard\Sponsore\SponsoreFileController@show')->name('sponsorefile.show');
+
+Route::post('dashboard/sponsore/sponsoreFile/renew/{id?}', 'App\Http\Controllers\Frontend\Dashboard\Sponsore\SponsoreFileController@renew')->name('sponsorefile.renew');
+
+Route::get('dashboard/sponsore/sponsoreFile/edit/{id?}', 'App\Http\Controllers\Frontend\Dashboard\Sponsore\SponsoreFileController@edit')->name('sponsorefile.edit');
+Route::put('dashboard/sponsore/sponsoreFile/update/{id?}', 'App\Http\Controllers\Frontend\Dashboard\Sponsore\SponsoreFileController@update')->name('sponsorefile.update');
+
+Route::delete('dashboard/sponsore/sponsoreFile/{id?}', 'App\Http\Controllers\Frontend\Dashboard\Sponsore\SponsoreFileController@destroy')->name('sponsorefile.destroy');
+Route::get('dashboard/sponsore/sponsoreFile/renew_request/{id?}', 'App\Http\Controllers\Frontend\Dashboard\Sponsore\SponsoreFileController@renew_request')->name('sponsorefile.renew_request');

@@ -103,17 +103,18 @@ class CompanyFileController extends Controller
         $taskName = $companyName.' Company File';
         $taskDesc = $file->name.'<br>'.$note;
 
-        $companyOrder = new CompanyFileOrder();
-        $companyOrder->file_id = $id;
-        $companyOrder->company_id = $companyId;
-        $companyOrder->status_id = $statusId;
-        $companyOrder->save();
+        // $companyOrder = new CompanyFileOrder();
+        // $companyOrder->file_id = $id;
+        // $companyOrder->company_id = $companyId;
+        // $companyOrder->status_id = $statusId;
+        // $companyOrder->save();
 
-        $data = $this->createTask(33 , $taskName, $taskDesc);
+        $data = $this->createTask(155 , $taskName, $taskDesc);
         if ($data['status'] == '200') {
             # code...
             FacadesAlert::success('Request sent Successfully');
         }else{
+
             FacadesAlert::error('Request failed');
         }
         return redirect()->route('companies.show', $company->id)->with('success', 'Company file updated successfully.');
