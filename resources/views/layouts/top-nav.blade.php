@@ -103,8 +103,10 @@
                                     </div>
                                 </div>
                                 <div class="w-full pl-3">
+
+                                    
                                     <div class="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400">New message
-                                        from stripe bank <span class="font-semibold text-gray-900 dark:text-white"> {{ $notification->data['subject'] }}</span></div>
+                                        from stripe bank <span class="font-semibold text-gray-900 dark:text-white"> {{ __('notifications.payment_added_notification', ['amount' => $notification->data['subject']]) }}</span></div>
                                     <div class="text-xs font-medium text-primary-700 dark:text-primary-400">{{ $notification->created_at->diffforhumans() }}</div>
                                 </div>
                             </a>

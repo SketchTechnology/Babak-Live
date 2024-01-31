@@ -51,10 +51,10 @@ class PaymentNotification extends Notification
 
     public function toDatabase(object $notifiable)
     {
-         return  [
-            'subject' => ("a new payment has been added to your wallet = ' {$this->totalAmount} '"),
-             'url' => url('/dashboard'),
-         ];
+        return [
+            'subject' => __('notifications.payment_added_notification', ['amount' => $this->totalAmount]),
+            'url' => url('/dashboard'),
+        ];
     }
 
     /**
