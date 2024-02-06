@@ -4,7 +4,13 @@
 
 
 <!-- margin right for RTL STYLE -->
+@if(app()->getLocale() == 'ar')
+
 <div class="m-10 grid gap-5 sm:grid-cols-3 max-w-screen-lg arabic" >
+@else
+<div class="m-10 grid gap-5 sm:grid-cols-3 max-w-screen-lg arabic" >
+@endif
+
     <div class="px-4 py-6 shadow-lg shadow-blue-100">
      <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14 rounded-xl bg-blue-50 p-4 text-blue-300" viewBox="0 0 20 20" fill="currentColor">
         <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
