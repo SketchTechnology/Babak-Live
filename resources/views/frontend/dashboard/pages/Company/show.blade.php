@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <section class="bg-white dark:bg-gray-900">
-    <div class="py-8 px-4 max-w-screen-xl sm:py-16 lg:px-6">
+    <div class="arabic py-8 px-4 max-w-screen-xl sm:py-16 lg:px-6">
         <div class="max-w-screen-md mb-8 lg:mb-16">
             <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white"> {{__('Company Info')}}</h2>
         </div>
@@ -81,7 +81,7 @@
         </div>
     </div>
 </div>
-<div class="flex flex-col">
+<div class="arabic flex flex-col">
     <div class="overflow-x-auto">
         <div class="inline-block min-w-full align-middle">
             <div class="overflow-hidden shadow">
