@@ -1,8 +1,12 @@
 @extends('layouts.app')
 @section('content')
+@if(app()->getLocale() == 'ar')
 
-<div class="p-4 bg-white block sm:flex items-center justify-between border-b border-gray-200 lg:mt-1.5 dark:bg-gray-800 dark:border-gray-700">
-    <div class="w-full mb-1">
+<div class=" arabic p-4 bg-white block sm:flex items-center justify-between border-b border-gray-200 lg:mt-1.5 dark:bg-gray-800 dark:border-gray-700">
+ @else
+ <div class="p-4 bg-white block sm:flex items-center justify-between border-b border-gray-200 lg:mt-1.5 dark:bg-gray-800 dark:border-gray-700">
+@endif
+<div class="w-full mb-1">
         <div class="mb-4">
             <nav class="flex mb-5" aria-label="Breadcrumb">
                 <ol class="inline-flex items-center space-x-1 text-sm font-medium md:space-x-2">
@@ -28,10 +32,20 @@
         </div>
     </div>
 </div>
+
 <div class="flex flex-col">
+    
+
+
     <div class="overflow-x-auto">
         <div class="inline-block min-w-full align-middle">
-            <div class="overflow-hidden shadow">
+        @if(app()->getLocale() == 'ar')
+
+            <div class="arabic overflow-hidden shadow">
+            @else
+            <div class="arabic overflow-hidden">
+                @endif
+
                 <table class="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-600">
                     <thead class="bg-gray-100 dark:bg-gray-700">
                         <tr>

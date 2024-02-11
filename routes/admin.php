@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Backend\Admin\AdminController;
 use App\Http\Controllers\Backend\Admin\CompanyController;
 use App\Http\Controllers\Backend\Admin\HomeController;
+use App\Http\Controllers\Backend\Admin\RequestsController;
 use App\Http\Controllers\Backend\Admin\RolesController;
 use App\Http\Controllers\Backend\Admin\UserController;
 use Illuminate\Support\Facades\Route;
@@ -48,6 +49,12 @@ Route::resource('users',UserController::class) ;
 
 // admins management
 Route::resource('admins',AdminController::class) ;
+
+// requests price 
+
+Route::get('requests/price',[RequestsController::class,'index'])->name('requests.price') ;
+Route::get('price/{id}/edit',[RequestsController::class,'edit'])->name('requests.edit');
+Route::post('price/{id}/store',[RequestsController::class,'update'])->name('requests.store');
 
 
 
