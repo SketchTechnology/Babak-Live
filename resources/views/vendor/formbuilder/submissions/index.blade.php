@@ -28,6 +28,7 @@
                                     @foreach($form_headers as $header)
                                         <th>{{ $header['label'] ?? title_case($header['name']) }}</th>
                                     @endforeach
+                                    <th class="fifteen">Finish</th>
                                     <th class="fifteen">Actions</th>
                                 </tr>
                             </thead>
@@ -46,6 +47,24 @@
                                             </td>
                                         @endforeach
                                         <td>
+                                            @if ($submission->status === 'pending')
+                                           <form action="{{ route('submissions.markAsCompleted', $submission->id) }}" method="post">
+                                            @csrf
+                                            @method('post')
+                                            <button type="submit" class="btn btn-primary btn-sm">
+                                                Mark as Completed
+                                            </button>
+                                        </form>
+                                        @else
+
+                                        <span
+                                        class="rounded-full bg-green-200 px-2 py-0.5 text-xs font-medium text-green-600">Completed</span>
+                                        @endif
+
+                                        </td>
+                                        <td>
+
+                                            
                                             <a href="{{ route('formbuilder::forms.submissions.show', [$form, $submission->id]) }}" class="btn btn-primary btn-sm" title="View submission">
                                                 <i class="fa fa-eye"></i> View
                                             </a>

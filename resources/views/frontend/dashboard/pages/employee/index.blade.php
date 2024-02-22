@@ -11,6 +11,27 @@
      margin-right:620px;
     }
   }
+  .filter-form {
+            margin-bottom: 1rem; /* Add some bottom margin for separation */
+        }
+
+        .filter-form form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .filter-form label,
+        .filter-form select,
+        .filter-form button {
+            flex: 1; /* Take up available space equally */
+            margin-bottom: 1rem; /* Add bottom margin for separation */
+        }
+        .small-button {
+        padding: 0.5rem 1rem; /* Adjust padding to make it smaller */
+        font-size: 0.875rem; /* Adjust font size to make it smaller */
+    }
+
 </style>
 @if(app()->getLocale() == 'ar')
 
@@ -47,6 +68,21 @@
         </div>
     </div>
 </div>
+<div class="mb-4 filter-form">
+   
+
+    <form action="{{ route('employee.index') }}" method="get" class="flex items-center justify-between">
+        <label for="company" class="text-sm font-medium text-gray-500 dark:text-gray-400">{{__('Filter by Company')}}</label>
+        <select name="company" id="company" class="block w-1/2 p-2 border border-gray-300 dark:border-gray-600 rounded-md">
+            <option value="" selected>{{__('All Companies')}}</option>
+            @foreach($companies as $company)
+                <option value="{{ $company->id }}" {{ request('company') == $company->id ? 'selected' : '' }}>{{ $company->name }}</option>
+            @endforeach
+        </select>
+        <button type="submit" class="text-white bg-blue-700 hover:bg-yellow-500 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800 small-button">{{__('Apply Filter')}}</button>
+    </form>
+</div>
+
 <div class="arabic flex flex-col">
     <div class="overflow-x-auto">
         <div class="inline-block min-w-full align-middle">

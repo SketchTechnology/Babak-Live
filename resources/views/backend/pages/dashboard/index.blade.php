@@ -28,6 +28,7 @@ use App\Models\Company;
       <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14 rounded-xl bg-rose-50 p-4 text-rose-300" viewBox="0 0 20 20" fill="currentColor">
         <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
       </svg>
+      
       <p class="mt-4 font-medium">{{__('Employees')}}</p>
       <p class="mt-2 text-xl font-medium">
         @php

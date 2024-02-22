@@ -257,5 +257,11 @@
     "United Arab Emirates":"الإمارات العربية المتحدة",
     "Saudi Arabia":"المملكة العربية السعودية",
     "Applied Requests":"الطلبات المقدم عليها",
+    "Transactions":"المعاملات",
+    "Amount":"المبلغ",
+    "DATE":"التاريخ", 
+    "Company AR Name":"اسم الشركة باللغة العربية", 
+    "Company EN Name":"اسم الشركة باللغة الاجنبية", 
+    "Dashboard": "لوحة التحكم" ,
     "Company Owner ID": "الرقم التعريفي لمالك الشركة"
  }

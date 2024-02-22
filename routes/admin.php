@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
+use App\Http\Controllers\Frontend\TransactionController;
 
 // Admin Authentication
 
@@ -58,6 +59,8 @@ Route::post('price/{id}/store',[RequestsController::class,'update'])->name('requ
 
 
 
+Route::post('/submissions/{id}/mark-as-completed', [TransactionController::class, 'markAsCompleted'])
+    ->name('submissions.markAsCompleted');
 
 });
 }) ;

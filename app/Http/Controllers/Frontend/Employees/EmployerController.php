@@ -27,16 +27,20 @@ class EmployerController extends Controller
     {
         $companies = Company::where('user_id', auth()->user()->id)->orderBy('id')->get();
         $job_titles = jobTitle::all();
-        $employees = Employer::with('user')->where('user_id', auth()->user()->id)->orderBy('created_at', 'desc')->paginate(5);
-        if($request->company){
-            $employees = Employer::where('company_id', $request->company)->orderBy('created_at', 'desc')->paginate(5);
+    
+        $employeesQuery = Employer::with(['user', 'company', 'jobTitle'])
+            ->where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'desc');
+    
+        if ($request->company) {
+            $employeesQuery->where('company_id', $request->company);
         }
+    
+        $employees = $employeesQuery->paginate(5);
+    
         return view('frontend.dashboard.pages.employee.index', compact('employees', 'companies', 'job_titles'));
-
-
-
     }
-
+    
     /**
      * Show the form for creating a new resource.
      */

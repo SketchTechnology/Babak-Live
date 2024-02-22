@@ -11,7 +11,7 @@ use App\Http\Controllers\Frontend\PaymentController;
 use App\Http\Controllers\Frontend\PaymentNotificationsController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Frontend\Requests\RequestController;
-
+use App\Http\Controllers\Frontend\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -227,6 +227,9 @@ Route::put('dashboard/sponsore/sponsoreFile/update/{id?}', 'App\Http\Controllers
 
 Route::delete('dashboard/sponsore/sponsoreFile/{id?}', 'App\Http\Controllers\Frontend\Dashboard\Sponsore\SponsoreFileController@destroy')->name('sponsorefile.destroy');
 Route::get('dashboard/sponsore/sponsoreFile/renew_request/{id?}', 'App\Http\Controllers\Frontend\Dashboard\Sponsore\SponsoreFileController@renew_request')->name('sponsorefile.renew_request');
+
+
+Route::get('transactions',[TransactionController::class,'showTransactions'])->name('transactions') ;
 
 
 
