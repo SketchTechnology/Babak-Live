@@ -2,6 +2,14 @@
 @section('content')
 @if(app()->getLocale() == 'ar')
 
+<style >
+@media only screen and (min-width : 992px) {
+    .arabic{
+     margin-right:260px;
+    }
+  }
+</style>
+
 <div class=" arabic p-4 bg-white block sm:flex items-center justify-between border-b border-gray-200 lg:mt-1.5 dark:bg-gray-800 dark:border-gray-700">
  @else
  <div class="p-4 bg-white block sm:flex items-center justify-between border-b border-gray-200 lg:mt-1.5 dark:bg-gray-800 dark:border-gray-700">
@@ -69,13 +77,14 @@
 
                         <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
                       
-                            <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                <div class="text-base font-semibold text-gray-900 dark:text-white">{{ $company->name }}</div>
+                            <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400 text-left	">
+                                <a href="{{ route('companies.show', $company->id) }}">
+                                <div class="text-base font-semibold text-gray-900 dark:text-white">{{ $company->name }}</div> </a>
                                 <div class="text-sm font-normal text-gray-500 dark:text-gray-400">category</div>
                             </td>
-                            <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $company->user->name }}</td>
-                            <td class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">{{ $company->country->name }}</td>
-                            <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $company->created_at }}</td>
+                            <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white text-left	">{{ $company->user->name }}</td>
+                            <td class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400 text-left	">{{ $company->country->name }}</td>
+                            <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white text-left	">{{ $company->created_at }}</td>
 
 
                             <td class="p-4 space-x-2 whitespace-nowrap">

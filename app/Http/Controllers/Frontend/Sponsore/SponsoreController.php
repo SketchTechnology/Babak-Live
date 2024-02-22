@@ -55,7 +55,7 @@ class SponsoreController extends Controller
             'phone' => 'required|numeric',
             'gender' => 'required|in:male,female',
             'nationality_id' => 'required|exists:nationalities,id',
-            'job_title_id' => 'required|exists:job_titles,id',
+            
             'relative_relation' => 'required|string',
         ]);
         $sponsored = Sponsore::create($request->all());

@@ -16,7 +16,7 @@ class CompanyController extends Controller
     public function index()
     {
 
-        $companies = Company::with('user', 'country')->orderBy('created_at', 'desc')->paginate(5);
+        $companies = Company::with('user', 'country')->orderBy('created_at', 'desc')->paginate(15);
 
         return view('backend.pages.company.index', compact('companies'));
     }
@@ -38,6 +38,7 @@ class CompanyController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|string',
+            'ar_name' => 'required|string',
             'user_id' => 'required|exists:users,id',
             'mobile' => 'required|string',
             'country_id' => 'required|exists:countries,id',
@@ -51,6 +52,7 @@ class CompanyController extends Controller
 
         $company = Company::create([
             'name' => $data['name'],
+            'name' => $data['ar_name'],
             'country_id' => $data['country_id'],
             'mobile' => $data['mobile'],
             'user_id' => $data['user_id'],

@@ -5,6 +5,13 @@
 
 <!-- margin right for RTL STYLE -->
 @if(app()->getLocale() == 'ar')
+<style >
+@media only screen and (min-width : 992px) {
+    .arabic{
+     margin-right:260px;
+    }
+  }
+</style>
 
 <div class="m-10 grid gap-5 sm:grid-cols-3 max-w-screen-lg arabic" >
 @else
@@ -71,9 +78,13 @@ use App\Models\Dashboard\Employer;
         <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
         <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
      </svg>
-     <p class="mt-4 font-medium">{{__('Action Requests')}}</p>
+     @php
+    $user_id = auth()->id();
+    $count = \Illuminate\Support\Facades\DB::table('form_submissions')->where('user_id', $user_id)->count();
+@endphp
+     <p class="mt-4 font-medium">{{__('Applied Requests')}}</p>
      <p class="mt-2 text-xl font-medium">
-        23.4k
+        {{ $count }}
         <svg xmlns="http://www.w3.org/2000/svg" class="inline h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
          <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
         </svg>

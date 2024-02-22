@@ -15,7 +15,7 @@
                                         d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
                                     </path>
                                 </svg>
-                                Dashboard
+                               {{ __('Dashboard') }}
                             </a>
                         </li>
                         <li>
@@ -27,7 +27,7 @@
                                         clip-rule="evenodd"></path>
                                 </svg>
                                 <a href="#"
-                                    class="ml-1 text-gray-700 hover:text-primary-600 md:ml-2 dark:text-gray-300 dark:hover:text-white">Companies</a>
+                                    class="ml-1 text-gray-700 hover:text-primary-600 md:ml-2 dark:text-gray-300 dark:hover:text-white"> {{ __('Companies') }}</a>
                             </div>
                         </li>
 
@@ -56,7 +56,7 @@
                             <tr>
                              
                                 <th scope="col"
-                                    class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                                    class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400 ">
                                     {{ __('Company Name') }}
                                 </th>
                                 <th scope="col"
@@ -77,16 +77,16 @@
                             @foreach ($companies as $company)
                                 <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
                                   
-                                    <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                    <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400 text-left	">
                                         <div class="text-base font-semibold text-gray-900 dark:text-white">
                                             {{ $company->name }}</div>
                                     </td>
-                                    <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white text-left	">
                                         {{ $company->user->name }}</td>
                                     <td
-                                        class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400">
+                                        class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400 text-left	">
                                         {{ $company->country->name }}</td>
-                                    <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white text-left	">
                                         {{ $company->created_at }}</td>
 
 

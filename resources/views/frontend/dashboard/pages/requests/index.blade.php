@@ -1,7 +1,20 @@
 @extends('layouts.app')
 @section('content')
+<style>
+@media only screen and (min-width : 992px) {
+    .arabic{
+     margin-right:260px;
+    }
+  }
+</style>
+@if(app()->getLocale() == 'ar')
+
     <div
         class="arabic p-4 bg-white block sm:flex items-center justify-between border-b border-gray-200 lg:mt-1.5 dark:bg-gray-800 dark:border-gray-700">
+        @else
+        <div
+        class="arabic p-4 bg-white block sm:flex items-center justify-between border-b border-gray-200 lg:mt-1.5 dark:bg-gray-800 dark:border-gray-700">
+            @endif
         <div class="w-full mb-1">
             <div class="mb-4">
                 <nav class="flex mb-5" aria-label="Breadcrumb">

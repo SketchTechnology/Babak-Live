@@ -1,6 +1,24 @@
 @extends('layouts.app')
 @section('content')
+<style>
+@media only screen and (min-width : 992px) {
+    .arabic{
+     margin-right:260px;
+    }
+  }
+  @media only screen and (min-width : 992px) {
+    .butt{
+     margin-right:620px;
+    }
+  }
+</style>
+@if(app()->getLocale() == 'ar')
+
 <div class="arabic p-4 bg-white block sm:flex items-center justify-between border-b border-gray-200 lg:mt-1.5 dark:bg-gray-800 dark:border-gray-700">
+    @else 
+    <div class=" p-4 bg-white block sm:flex items-center justify-between border-b border-gray-200 lg:mt-1.5 dark:bg-gray-800 dark:border-gray-700">
+    @endif
+
     <div class="w-full mb-1">
         <div class="mb-4">
             <nav class="flex mb-5" aria-label="Breadcrumb">
@@ -21,7 +39,7 @@
                 </ol>
             </nav>
         </div>
-        <div class="items-center justify-between block sm:flex md:divide-x md:divide-gray-100 dark:divide-gray-700">
+        <div class="items-center butt justify-between block sm:flex md:divide-x md:divide-gray-100 dark:divide-gray-700">
             <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">{{__('Employees')}}</h1>
             <a href="{{ route('employee.create') }}" id="createProductButton" class="text-white bg-blue-700 hover:bg-yellow-500 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800" type="button" data-drawer-target="drawer-create-product-default" data-drawer-show="drawer-create-product-default" aria-controls="drawer-create-product-default" data-drawer-placement="right">
                 {{__('Add New Employee')}}
@@ -63,7 +81,8 @@
                         <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
                             
                             <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                <div class="text-base font-semibold text-gray-900 dark:text-white">{{ $employee->en_name }}</div>
+                                 <a href="{{ route('employee.show', $employee->id) }}">
+                                <div class="text-base font-semibold text-gray-900 dark:text-white">{{ $employee->en_name }}</div></a>
                                 <div class="text-sm font-normal text-gray-500 dark:text-gray-400">category</div>
                             </td>
                             <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $employee->email}}</td>

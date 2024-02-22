@@ -12,17 +12,17 @@
                         <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{__('Company Name')}}</label>
                         <input type="text" name="name" id="brand"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            placeholder="English Name" required="" value="{{$company->name}}">
+                            placeholder="{{__('Company Name')}}" required="" value="{{$company->name}}">
                         @error('name')
                             <small class="text-red-500">{{ $message }}</small>
                         @enderror
                     </div>
 
                     <div class="w-full">
-                        <label for="user_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{__('User Id')}}</label>
+                        <label for="user_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{__('Company Owner ID')}}</label>
                         <input type="number" name="user_id" id="user_id"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            placeholder="Enter the User ID" value="{{$company->user_id}}" required="">
+                            placeholder="{{__('Company Owner ID')}}" value="{{$company->user_id}}" required="">
                         @error('user_id')
                             <small class="text-red-500">{{ $message }}</small>
                         @enderror
@@ -34,7 +34,7 @@
                         <select id="country_id" name="country_id"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                             @foreach ($countries as $country)
-                                <option value="{{ $country->id }}" @selected($country->id== $company->country_id)>{{ $country->name }}</option>
+                                <option value="{{ $country->id }}" @selected($country->id== $company->country_id)>{{__($country->name)}}</option>
                             @endforeach
 
                         </select>
@@ -47,7 +47,7 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{__('Phone Number')}}</label>
                         <input type="text" name="mobile" id="mobile"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            placeholder="Mobile Number" required="" value="{{$company->mobile}}">
+                            placeholder="{{__('Phone Number')}}" required="" value="{{$company->mobile}}">
                         @error('mobile')
                             <small class="text-red-500">{{ $message }}</small>
                         @enderror
@@ -58,7 +58,7 @@
                         <label for="capital" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{__('Company Capital')}}</label>
                         <input type="text" name="capital" id="capital"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            placeholder="capital" required="" value="{{$data['capital']}}">
+                            placeholder="{{__('Company Capital')}}" required="" value="{{$data['capital']}}">
                         @error('capital')
                             <small class="text-red-500">{{ $message }}</small>
                         @enderror
@@ -70,7 +70,7 @@
                         <label for="activity" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{__('Company Activity')}}</label>
                         <input type="text" name="activity" id="activity" value="{{$data['activity'] ?? ''}}"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            placeholder="activity" required="">
+                            placeholder="{{__('Company Activity')}}" required="">
                         @error('activity')
                             <small class="text-red-500">{{ $message }}</small>
                         @enderror
