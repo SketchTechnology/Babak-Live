@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Backend\Admin\AdminController;
 use App\Http\Controllers\Backend\Admin\CompanyController;
 use App\Http\Controllers\Backend\Admin\HomeController;
+use App\Http\Controllers\Backend\Admin\PendingController;
 use App\Http\Controllers\Backend\Admin\RequestsController;
 use App\Http\Controllers\Backend\Admin\RolesController;
 use App\Http\Controllers\Backend\Admin\UserController;
@@ -51,6 +52,19 @@ Route::resource('users',UserController::class) ;
 // admins management
 Route::resource('admins',AdminController::class) ;
 
+
+
+
+// pendings 
+
+Route::get('pendings',[PendingController::class,'index'])->name('index.pending') ;
+Route::get('pendings/{id}/edit',[PendingController::class,'edit'])->name('edit.pending') ;
+Route::put('pendings/{id}/edit',[PendingController::class,'update'])->name('update.pending') ;
+Route::get('pendings/{id}',[PendingController::class,'show'])->name('show.pending') ;
+
+
+
+
 // requests price 
 
 Route::get('requests/price',[RequestsController::class,'index'])->name('requests.price') ;
@@ -69,3 +83,6 @@ Route::post('/submissions/{id}/mark-as-completed', [TransactionController::class
 
 
 
+// pending payments 
+Route::post('pending/session',  [PendingController::class, 'session'])->name('pending.session');
+Route::get('pending/success', [PendingController::class, 'success'])->name('pending.success');

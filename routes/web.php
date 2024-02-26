@@ -240,7 +240,9 @@ Route::get('locked/payment', [LockedController::class, 'index'])->name('locked.c
 Route::post('locked/session',  [LockedController::class, 'session'])->name('locked.session');
 Route::get('locked/success', [LockedController::class, 'success'])->name('locked.success');
 
-
+Route::get('pending',function(){
+    return view('frontend.dashboard.pages.lock.pending') ;
+})->name('pending') ;
 
 //lock screen
  

@@ -21,6 +21,10 @@ class CheckUserStatus
 
         // dd($user) ;
 
+        if ($user && $user->status === 'pending') {
+            return redirect()->route('pending') ;
+        }
+
         if ($user && $user->status === 'inactive') {
             return redirect()->route('locked') ;
         }

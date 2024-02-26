@@ -10,7 +10,7 @@ use App\Models\Country;
 class Company extends Model
 {
     use HasFactory;
-    protected $fillable = [ 'name', 'user_id', 'mobile', 'country_id', 'company_data', 'ar_name'];
+    protected $fillable = [ 'name', 'user_id', 'mobile', 'country_id', 'company_data', 'ar_name','registration_price'];
     protected $table = 'companies';
 
 
