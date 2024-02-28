@@ -7,6 +7,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            
             <div class="card rounded-0">
                 <div class="card-header">
                     <h5 class="card-title">{{ $pageTitle }}</h5>
@@ -24,6 +25,9 @@
                             <i class="fa fa-submit"></i> Submit Form
                         </button>
                     </div>
+                    @if ($errors->has('balance'))
+    <span class="text-red-500">{{ $errors->first('balance') }}</span>
+@endif
                 </form>
             </div>
         </div>
