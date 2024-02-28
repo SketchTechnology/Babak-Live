@@ -48,7 +48,7 @@
                 </nav>
             </div>
             <div class="items-center justify-between block sm:flex md:divide-x md:divide-gray-100 dark:divide-gray-700">
-                <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">{{ __('Companies') }}</h1>
+                <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">{{ __('Requests') }}</h1>
 
             </div>
         </div>

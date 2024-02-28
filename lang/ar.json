@@ -265,5 +265,10 @@
     "Company AR Name":"اسم الشركة باللغة العربية", 
     "Company EN Name":"اسم الشركة باللغة الاجنبية", 
     "Dashboard": "لوحة التحكم" ,
+    "Transaction": "المعاملة" ,
+    "Requests": "الطلبات" ,
+    "Requests Link": "الرابط" ,
+    "Total Money In Your Wallet": "اجمالي المبلغ في المحفظة" ,
+    "Apply Filter": "الفلترة" ,
     "Company Owner ID": "الرقم التعريفي لمالك الشركة"
  }

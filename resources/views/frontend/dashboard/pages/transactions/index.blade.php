@@ -82,10 +82,10 @@
 
                             @if ($transaction->formSubmission->status === 'pending')
                                 <span
-                                    class="rounded-full bg-yellow-200 px-2 py-0.5 text-xs font-medium text-yellow-700">{{ $transaction->formSubmission->status }}</span>
+                                    class="rounded-full bg-yellow-200 px-2 py-0.5 text-xs font-medium text-yellow-700">{{ __($transaction->formSubmission->status) }}</span>
                             @else
                                 <span
-                                    class="rounded-full bg-green-200 px-2 py-0.5 text-xs font-medium text-green-600">{{ $transaction->formSubmission->status }}</span>
+                                    class="rounded-full bg-green-200 px-2 py-0.5 text-xs font-medium text-green-600">{{ __($transaction->formSubmission->status) }}</span>
                             @endif
                         </td>
                         <td class="px-6 py-4">
