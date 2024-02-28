@@ -63,7 +63,7 @@
 
 				   <div class="inside-content">
 
-					   <img src="lock/img/logo.png" class="brand-logo" alt="My logo" />
+					   <img src="https://i.ibb.co/bb91b0H/logo25.jpg" class="brand-logo" alt="My logo"  height="100px" />
 
 					   <h1 class="cd-headline zoom">
 						   <span class="cd-words-wrapper">
