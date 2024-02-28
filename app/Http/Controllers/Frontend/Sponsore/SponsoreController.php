@@ -63,6 +63,17 @@ class SponsoreController extends Controller
         return redirect()->route('sponsore.index')->with('success', 'Sponsore created successfully.');
     }
 
+
+    public function search(Request $request)
+    {
+        $employeeName = $request->input('employee_name');
+
+        $sponsors = Sponsore::where('en_name', 'LIKE', '%' . $employeeName . '%')
+            ->orWhere('ar_name', 'LIKE', '%' . $employeeName . '%')
+            ->get();
+
+        return view('frontend.dashboard.pages.sponsore.index', ['sponsored' => $sponsors]);
+    }
     /**
      * Display the specified resource.
      */

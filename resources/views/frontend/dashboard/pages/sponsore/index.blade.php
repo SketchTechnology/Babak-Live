@@ -28,6 +28,7 @@
                 </ol>
             </nav>
         </div>
+        
         <div class="items-center justify-between block sm:flex md:divide-x md:divide-gray-100 dark:divide-gray-700">
             <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">{{__('Sponsored')}}</h1>
             <a href="{{ route('sponsore.create') }}" id="createProductButton" class="text-white bg-blue-700 hover:bg-yellow-500 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800" type="button" data-drawer-target="drawer-create-product-default" data-drawer-show="drawer-create-product-default" aria-controls="drawer-create-product-default" data-drawer-placement="right">
@@ -37,6 +38,15 @@
 
     </div>
 </div>
+<form action="{{ route('search-sponsors') }}" method="GET">
+    @csrf
+    <div class="flex items-center">
+        <input type="text" name="employee_name" placeholder="{{__('Search by employee name')}}" class="border p-2 rounded-md focus:outline-none focus:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300">
+        <button type="submit" class="ml-2 text-white bg-blue-700 hover:bg-yellow-500 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
+            {{__('Search')}}
+        </button>
+    </div>
+</form>
 <div class="arabic flex flex-col">
     <div class="overflow-x-auto">
         <div class="inline-block min-w-full align-middle">

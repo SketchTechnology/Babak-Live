@@ -25,350 +25,285 @@
 
         <!-- ============== Resources style ============== -->
         <link rel="stylesheet" href="lock/css/style-electric.css" />
-		<style>
-			.card {
- width: 400px;
- height: 400px;
- --border-radius: 15px;
- --border-width: 4px;
- appearance: none;
- position: relative;
- padding: 1em 2em;
- border: 0;
- background: rgb(5, 5, 22);
- font-size: 18px;
- font-weight: 500;
- color: #fff;
- z-index: 2;
- border-radius: 15px;
+	 <style>
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:600,700';
+
+* {font-family: 'Open Sans', sans-serif;}
+
+.rwd-table {
+  margin: auto;
+  min-width: 300px;
+  max-width: 100%;
+  border-collapse: collapse;
 }
 
-.card::after {
- --m-i: linear-gradient(#000, #000);
- --m-o: content-box, padding-box;
- content: "";
- position: absolute;
- left: 0;
- top: 0;
- width: 100%;
- height: 100%;
- padding: var(--border-width);
- border-radius: var(--border-radius);
- background-image: conic-gradient(
-		#488cfb,
-		#29dbbc,
-		#ddf505,
-		#ff9f0e,
-		#e440bb,
-		#655adc,
-		#488cfb
-	);
- -webkit-mask-image: var(--m-i), var(--m-i);
- mask-image: var(--m-i), var(--m-i);
- -webkit-mask-origin: var(--m-o);
- mask-origin: var(--m-o);
- -webkit-mask-clip: var(--m-o);
- mask-composite: exclude;
- -webkit-mask-composite: destination-out;
- filter: hue-rotate(0);
- animation: rotate-hue linear 500ms infinite;
- animation-play-state: paused;
+.rwd-table tr:first-child {
+  border-top: none;
+  background: #428bca;
+  color: #fff;
 }
 
-.card:hover::after {
- animation-play-state: running;
+.rwd-table tr {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  background-color: #f5f9fc;
 }
 
-@keyframes rotate-hue {
- to {
-  filter: hue-rotate(1turn);
- }
+.rwd-table tr:nth-child(odd):not(:first-child) {
+  background-color: #ebf3f9;
 }
 
-.card,
-.card::after {
- box-sizing: border-box;
+.rwd-table th {
+  display: none;
 }
 
-.card:active {
- --border-width: 5px;
+.rwd-table td {
+  display: block;
 }
-.loading-bar {
-  position: relative;
-  width: 110px;
-  height: 110px;
-  background: transparent;
-  border: px solid #3c3c3c;
-  border-radius: 50%;
+
+.rwd-table td:first-child {
+  margin-top: .5em;
+}
+
+.rwd-table td:last-child {
+  margin-bottom: .5em;
+}
+
+.rwd-table td:before {
+  content: attr(data-th) ": ";
+  font-weight: bold;
+  width: 120px;
+  display: inline-block;
+  color: #000;
+}
+
+.rwd-table th,
+.rwd-table td {
+  text-align: left;
+}
+
+.rwd-table {
+  color: #333;
+  border-radius: .4em;
+  overflow: hidden;
+}
+
+.rwd-table tr {
+  border-color: #bfbfbf;
+}
+
+.rwd-table th,
+.rwd-table td {
+  padding: .5em 1em;
+}
+@media screen and (max-width: 601px) {
+  .rwd-table tr:nth-child(2) {
+    border-top: none;
+  }
+}
+@media screen and (min-width: 600px) {
+  .rwd-table tr:hover:not(:first-child) {
+    background-color: #d8e7f3;
+  }
+  .rwd-table td:before {
+    display: none;
+  }
+  .rwd-table th,
+  .rwd-table td {
+    display: table-cell;
+    padding: .25em .5em;
+  }
+  .rwd-table th:first-child,
+  .rwd-table td:first-child {
+    padding-left: 0;
+  }
+  .rwd-table th:last-child,
+  .rwd-table td:last-child {
+    padding-right: 0;
+  }
+  .rwd-table th,
+  .rwd-table td {
+    padding: 1em !important;
+  }
+}
+
+
+/* THE END OF THE IMPORTANT STUFF */
+
+/* Basic Styling */
+ 
+h1 {
   text-align: center;
-  line-height: 111px;
-  font-family: sans-serif;
-  font-size: 15px;
-  color: #fff000;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  text-shadow: 0 0 20px #fff000;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  font-size: 2.4em;
+  color: #f2f2f2;
 }
-
-.loading-bar:before {
-  content: "";
-  position: absolute;
-  top: -3px;
-  left: -3px;
-  width: 100%;
-  height: 100%;
-  border: 3px solid transparent;
-  border-top: 5px solid #fff000;
-  border-right: 5px solid #fff000;
-  border-radius: 50%;
-  animation: animateC 2s linear infinite;
-}
-
-@keyframes animateC {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes animate {
-  0% {
-    transform: rotate(45deg);
-  }
-
-  100% {
-    transform: rotate(405deg);
-  }
-}
-.card {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center content horizontally */
-    justify-content: center; /* Align content at the top */
-    height: 100vh; /* Adjust the height of the card as needed */
-}
-
-.loading-bar-container {
-    margin-bottom: 20px; /* Add margin between loading bar and other content */
-}
-
-.loading-bar {
-    /* Add your styling for the loading bar */
-    background-color: #3498db;
-    color: #fff;
-    padding: 10px;
-}
-
-.loader {
-  font-size: 4rem;
-  font-family: sans-serif;
-  font-variant: small-caps;
-  font-weight: 900;
-  background: conic-gradient(
-    #dff2ae 0 25%,
-    #ff904f 25% 50%,
-    #feefe7 50% 75%,
-    #ffde2b 75%
-  );
-  background-size: 200% 200%;
-  animation: animateBackground 4.5s ease-in-out infinite;
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-}
-
-@keyframes animateBackground {
-  25% {
-    background-position: 0 100%;
-  }
-
-  50% {
-    background-position: 100% 100%;
-  }
-
-  75% {
-    background-position: 100% 0%;
-  }
-
-  100% {
-    background-position: 0 0;
-  }
-}
-
-.loading-bar,
-.company-info {
-	
-    /* Add your styling for the loading bar and company info */
-     color: #fff;
-    padding: 10px;
-    text-align: center;
-}
-
-.company-name {
-    font-weight: bold;
-}
-
-.status {
-    color: #f39c12; /* Adjust color for the status */
-	margin-top: 200px ;
-	font-weight: bold;
-	font-size: 50px;
-	margin-bottom: 20px
-
-
-}
-
-.pay {
+.container {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  width: 400px;
-  height: 500px;
-  padding: 20px 1px;
-  margin: 10px 0;
-  text-align: center;
+  justify-content: center;
+  height: 100vh; /* This ensures that the container takes up the full height of the viewport */
+}
+h3 {
+  display: inline-block;
   position: relative;
-   box-shadow: 0 10px 15px -3px rgba(33,150,243,.4),0 4px 6px -4px rgba(33,150,243,.4);
-  border-radius: 10px;
-  background-color: #6B6ECC;
-  background: linear-gradient(45deg, #04051dea 0%, #2b566e 100%);
+  text-align: center;
+  font-size: 1.5em;
+  color: #cecece;
+}
+h3:before {
+  content: "\25C0";
+  position: absolute;
+  left: -50px;
+  -webkit-animation: leftRight 2s linear infinite;
+  animation: leftRight 2s linear infinite;
+}
+h3:after {
+  content: "\25b6";
+  position: absolute;
+  right: -50px;
+  -webkit-animation: leftRight 2s linear infinite reverse;
+  animation: leftRight 2s linear infinite reverse;
+}
+@-webkit-keyframes leftRight {
+  0%    { -webkit-transform: translateX(0)}
+  25%   { -webkit-transform: translateX(-10px)}
+  75%   { -webkit-transform: translateX(10px)}
+  100%  { -webkit-transform: translateX(0)}
+}
+@keyframes leftRight {
+  0%    { transform: translateX(0)}
+  25%   { transform: translateX(-10px)}
+  75%   { transform: translateX(10px)}
+  100%  { transform: translateX(0)}
 }
 
-.content {
-  padding: 20px;
-}
-
-.content .price {
-  color: white;
-  font-weight: 800;
-  font-size: 50px;
-  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.42);
-}
-
-.content .description {
-  color: rgba(255, 255, 255, 0.6);
-  margin-top: 40px;
-  font-size: 14px;
-}
-
-.content .title {
-  font-weight: 800;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.64);
-  margin-top: 10px;
-  font-size: 25px;
-  letter-spacing: 1px;
-}
-
-button {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-  border: none;
-  outline: none;
-  color: rgb(255 255 255);
-  text-transform: uppercase;
-  font-weight: 1000;
-  font-size: 2rem;
-  padding: 0.75rem 1.5rem;
-  background-color: rgb(33 150 243);
-  border-radius: 0.5rem;
-  width: 90%;
-  text-shadow: 0px 4px 18px #2c3442;
-}
+/*
+    Don't look at this last part. It's unnecessary. I was just playing with pixel gradients... Don't judge.
+*/
+/*
+@media screen and (max-width: 601px) {
+  .rwd-table tr {
+    background-image: -webkit-linear-gradient(left, #428bca 137px, #f5f9fc 1px, #f5f9fc 100%);
+    background-image: -moz-linear-gradient(left, #428bca 137px, #f5f9fc 1px, #f5f9fc 100%);
+    background-image: -o-linear-gradient(left, #428bca 137px, #f5f9fc 1px, #f5f9fc 100%);
+    background-image: -ms-linear-gradient(left, #428bca 137px, #f5f9fc 1px, #f5f9fc 100%);
+    background-image: linear-gradient(left, #428bca 137px, #f5f9fc 1px, #f5f9fc 100%);
+  }
+  .rwd-table tr:nth-child(odd) {
+    background-image: -webkit-linear-gradient(left, #428bca 137px, #ebf3f9 1px, #ebf3f9 100%);
+    background-image: -moz-linear-gradient(left, #428bca 137px, #ebf3f9 1px, #ebf3f9 100%);
+    background-image: -o-linear-gradient(left, #428bca 137px, #ebf3f9 1px, #ebf3f9 100%);
+    background-image: -ms-linear-gradient(left, #428bca 137px, #ebf3f9 1px, #ebf3f9 100%);
+    background-image: linear-gradient(left, #428bca 137px, #ebf3f9 1px, #ebf3f9 100%);
+  }
+}*/
+button[disabled] {
+      background-color: #ccc; /* Grey background color */
+      color: #666; /* Darker grey text color */
+      cursor: not-allowed; /* Change cursor to indicate it's not clickable */
+    }
 
 
+    #checkout-live-button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+      background-color: #4CAF50; /* Green background color */
+      color: #fff; /* White text color */
+      border: 2px solid #4CAF50; /* Green border */
+      transition: background-color 0.3s, color 0.3s, border 0.3s;
+    }
 
-		</style>
+    #checkout-live-button:hover {
+      background-color: #45a049; /* Darker green on hover */
+      color: #fff; /* White text color on hover */
+      border: 2px solid #45a049; /* Darker green border on hover */
+    }
+   </style>
 
 	</head>
 
 	<body>
  
-		<div id="container">
-			<div id="output" class="back-fss"></div>
-		</div>
-
-		<span class="full-overlay on-canvas"></span>
-
-		<!-- LOADING -->
-		<div id="loading">
-			<div class="loader">
-				<div class="loader__row">
-					<div class="loader__arrow up inner inner-6"></div>
-					<div class="loader__arrow down inner inner-5"></div>
-					<div class="loader__arrow up inner inner-4"></div>
-				</div>
-				<div class="loader__row">
-					<div class="loader__arrow down inner inner-1"></div>
-					<div class="loader__arrow up inner inner-2"></div>
-					<div class="loader__arrow down inner inner-3"></div>
-				</div>
-			</div>
-			<span>BABAK</span>
-		</div>
-@php
-	$user = auth()->user();
+    @php
+$user = auth()->user();
 
 // Get the first company associated with the user
 $company = $user->companies->first();
 
 @endphp
-		<!-- START - FULLPAGE -->
-		<div id="fullpage">
+		<div id="container">
+      <div style="position: absolute; top: 35%; left: 50%; transform: translate(-50%, -50%); text-align: center; width: 100%;">
+        <h3 style="margin: 0;">BABEK SYSTEM</h3>
+      </div>
+ <div class="container">
+  <table class="rwd-table">
+    <tbody>
+      <tr>
+        <th>ID</th>
+        <th>Company Owner</th>
+        <th>Company Name</th>
+        <th>Status</th>
+        <th>Price</th>
+        <th>Action</th>
+      </tr>
+      <tr>
+        <td data-th="ID">
+        1
+        </td>
+        <td data-th="Company Name">
+          {{$company->user->name}} 
 
-		    <!-- HOME SECTION -->
-		    <div class="section active" id="section0">
+        </td>
+        <td data-th="Owner Name">
+            {{$company->name}}
 
-		    	<div class="inside-section">
+        </td>
 
-					<div class="inside-content">
+        @if($company && $company->registration_price == 0)
 
- 
-						<h1 class="cd-headline zoom">
-							@if($company && $company->registration_price == 0)
+        <td data-th="Status">
+          Waiting
+        </td>
+        <td data-th="Price">
+          Waiting
+        </td>
+        <td data-th="Pay">
+         <button disabled>Pay Now</button>
+        </td>
 
-							<div class="card">
-								<div class="loading-bar-container">
-									<div class="loader">
-										BABEK
-									  </div> 
-									  <div class="company-info">
- 										 
-										<div class="status">Pending</div>
-										<span style="	font-weight: bold;
-										">Please Wait For Approval</span>
-									</div>
- 								</div>
-								
- 							</div>
-							
-							 @else
-							 <div class="pay">
-								<div class="content">
-								  <div class="title">Special Offer</div>
-								  <div class="price">${{$company->registration_price}}</div>
-								  <div class="description">"Embark on a transformative journey with our Babek System Special Offer – a unique opportunity to experience cutting-edge features, personalized support, and unmatched performance. Elevate your business today with an exclusive deal crafted for your success."</div>
-								</div>
-								<form action="pending/session" method="POST">
-									<input type="hidden" name="_token" value="{{csrf_token()}}">
-									<input type='hidden' name="total" value="{{ intval($company->registration_price) }}">
-									<input type='hidden' name="productname" value="Asus Vivobook 17 Laptop - Intel Core 10th">
-								   <button  type="submit" id="checkout-live-button">
-									  {{__('Subscribe Now')}}
-								</button>                   </form>
-				 
-							</div>
- 						@endif
- 
- 
- 
-	        		</div>
+
+        @else
+
+        <td data-th="Status">
+          Approved
+        </td>
+        <td data-th="Price">
+          ${{$company->registration_price}}
+        </td>
+        <td data-th="Pay">
+          <form action="pending/session" method="POST">
+            <input type="hidden" name="_token" value="{{csrf_token()}}">
+            <input type='hidden' name="total" value="{{ intval($company->registration_price) }}">
+            <input type='hidden' name="productname" value="Asus Vivobook 17 Laptop - Intel Core 10th">
+             <button  type="submit" id="checkout-live-button">
+              {{__('Pay Now')}}
+          </button>                   </form>
+        </td>
+@endif
+
+      </tr>
+     
+      
+      
+    </tbody>
+  </table>
+ </div>
+      
 				</div>
 
 				{{-- <a class="ibtn light-btn blink" href="#2">Notify me!</a> --}}

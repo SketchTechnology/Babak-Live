@@ -6,7 +6,7 @@
    <head>
 
 	   <meta charset="utf-8">
-	   <title>MOON - Absolute Coming Soon Template</title>
+	   <title>Babek System</title>
 	   <meta name="description" content="The description should optimally be between 150-160 characters.">
 	   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	   <meta name="author" content="Madeon08">
@@ -77,13 +77,13 @@
 
 
 
-							   <b>اشترك الآن في سيستم بابك لخدمات  
-								   <span class="highlight">الشركات</span> <br/>
+							   <b>اشترك الآن في سيستم <span class="highlight">بابك</span>  لخدمات  
+								   <br/>
 								   
 							   </b>
 
-							   <b>Babak System &<br/>
-								   <span class="highlight">fully</span> responsive<br/>
+							   <b> <span class="highlight">Babak System</span> &<br/>
+							  responsive<br/>
 								   on everything
 							   </b>
 
@@ -116,80 +116,7 @@
 		   </div>
 
 		   <!-- ABOUT SECTION -->
-		   <div class="section" id="section1">
-
-			   <div class="inside-section">
-
-				   <div class="inside-content double-col container">
-
-					   <div class="row">
-
-						   <div class="col-xs-12 col-md-6 col-lg-5 with-border">
-
-							   <h2>1<span class="number">.</span> Read<small>Being apart of this awesome venture</small></h2>
-
-							   <div class="text">
-
-								   <p class="subtitle">
-									   Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.  It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
-
-									   <br><br>
-
-									   <strong>Separated they live in Bookmarksgrove</strong> right at the coast of the Semantics, a large language ocean.
-								   </p>
-
-							   </div>
-						   </div>
-
-						   <div class="col-xs-12 col-md-6 col-md-push-0 col-lg-6 col-lg-push-1">
-
-							   <h2>2<span class="number">.</span> Get in<small>Get your exclusive notification</small></h2>
-
-							   <div class="text">
-
-								   <ul>
-									   <li><i class="fa fa-check"></i> Free access to the Grand Opening</li>
-									   <li><i class="fa fa-check"></i> Save up to 60% on the real price</li>
-									   <li><i class="fa fa-check"></i> Never miss an update again</li>
-								   </ul>
-
-								   <!-- Newsletter Form -->
-								   <div id="subscribe">
-
-									   <form action="php/notify-me-2.php" id="notifyMe" method="POST">
-
-										   <div class="form-group">
-
-											   <div class="controls">
-												   
-												   <!-- Field  -->
-												   <input type="text" id="mail-sub" name="email" placeholder="Click here to type your email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Click here to type your email'" class="form-control email srequiredField" />
-
-												   <!-- Button -->
-												   <button id="submit-form" class="btn btn-lg submit">Get notified</button>
-
-												   <div class="clear"></div>
-
-											   </div>
-
-										   </div>
-
-									   </form>
-
-									   <p class="spam-news"><i class="fa fa-lock"></i> We hate spam just as much as you do. Your email will stay secret.</p>
-
-								   </div>
-								   <!-- /. Newsletter Form -->
-							   </div>
-						   </div>
-					   </div>
-				   </div>
-			   </div>	
-
-			   <a class="ibtn light-btn hidden-xs hidden-sm" href="#3">Contact us!</a>
-
-		   </div>
-
+		 
 		   <!-- CONTACT SECTION -->
 		  
 	   </div>

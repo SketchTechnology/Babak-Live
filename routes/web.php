@@ -231,6 +231,7 @@ Route::get('dashboard/sponsore/sponsoreFile/renew_request/{id?}', 'App\Http\Cont
 
 Route::get('transactions',[TransactionController::class,'showTransactions'])->name('transactions') ;
 
+Route::get('/search-sponsors', [SponsoreController::class,'search'])->name('search-sponsors');
 
 
 }) ;
