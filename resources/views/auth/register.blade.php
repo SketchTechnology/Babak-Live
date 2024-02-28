@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="auto">
 <head>
-    <title>BABEK</title>
     <!-- Meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,8 +49,25 @@
     </style>
     @endif --}}
     <!-- Styles -->
+    <style>
+        .iti__country-list .iti__country {
+    color: red; /* Change to your desired text color */
+}
+
+/* Customize the text color of the selected country */
+.iti__country.active {
+    color: red; /* Change to your desired text color */
+}
+
+/* Customize the text color of the search input placeholder */
+.iti__country-list-search input::placeholder {
+    color: red; /* Change to your desired text color */
+}
+    </style>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('frontend/assets/css/register.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.3/build/css/intlTelInput.css">
+
 </head>
 <body>
     <!-- Video background -->
@@ -107,6 +123,8 @@
                                     <label for="phone">{{ __('Phone Number') }}</label>
                                     <input id="phone" onkeyup="laststep()" type="phone" class="form-control" name="phone" value="{{ old('phone') }}" required autocomplete="">
                                     <div id="phoneError"> </div>
+                                    <input type="hidden" name="dial_code" id="dial_code" value="">
+
                                 </div>
                                 <div class="form-group">
                                     <label for="password">{{ __('Password') }}</label>
@@ -319,7 +337,7 @@
 
                 var clabel = document.createElement("label");
                 clabel.htmlFor = "partner-country";
-                clabel.innerHTML="{{ __('Partner Country') }}";
+                clabel.innerHTML="{{ __('Partner Nationality') }}";
                 container.appendChild(clabel);
                 var cinput = document.createElement("select");
                 var countries = <?php echo json_encode($countries_names);?>;
@@ -339,6 +357,34 @@
         }
     }
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.3/build/js/intlTelInput.min.js"></script>
+    <script>
+  
+  document.addEventListener("DOMContentLoaded", function () {
+        const input = document.querySelector("#phone");
+        const dialCodeInput = document.querySelector("#dial_code");
+  
+        const iti = window.intlTelInput(input, {
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@19.5.3/build/js/utils.js",
+        });
+  
+        // Listen to the input change event and update the hidden input with the dial code
+        input.addEventListener("input", function () {
+            const selectedCountryData = iti.getSelectedCountryData();
+            console.log("Selected Country Data:", selectedCountryData);
+  
+            if (selectedCountryData) {
+                dialCodeInput.value = '+' + selectedCountryData.dialCode;
+                console.log("Dial Code:", dialCodeInput.value);
+            } else {
+                dialCodeInput.value = null;
+                console.log("Dial Code is null");
+            }
+        });
+    });
+      </script>
+
 <script>
     function laststep(){
         // Functions to update summary information on the last step

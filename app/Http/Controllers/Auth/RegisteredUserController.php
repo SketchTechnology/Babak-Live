@@ -62,11 +62,12 @@ class RegisteredUserController extends Controller
 
     protected function create_user(Request $data)
     {
-        $data->validate([
+         $data->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
+       
         
         $partner = [];
         $partner_country = [];
@@ -84,10 +85,14 @@ class RegisteredUserController extends Controller
           ]);
             // $country_id = Country::where('name', $data['country'])->firstorfail();
             // dd($country_id->id);
-            $company = Company::create([
+
+            $dialCode = $data['dial_code'];
+
+        $full = $dialCode . $data['phone'];
+             $company = Company::create([
                 'name' => $data['company'],
                 'country_id' => $data['country'],
-                'mobile' => $data['phone'],
+                'mobile' => $full,
                 'user_id' => $user->id,
                 'company_data' =>json_encode([
                     "partners" => $data['partners'],
