@@ -21,7 +21,7 @@ class UserController extends Controller
 
         $request = request();
 
-        $users =User::where('role','user')->search($request->query())->paginate(8) ;
+        $users =User::where('role','user')->search($request->query())->paginate(15) ;
 
         return view('backend.pages.users.index',compact('users')) ;
     }
@@ -41,14 +41,23 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
+
+        $data = $request->all() ;
+ 
+        $dialCode = $data['dial_code'];
+
+        // Concatenate the dial code and mobile number
+        $fullMobileNumber = $dialCode . $data['phone'];
+
+
         $user= User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'phone'=>$request->phone ,
+            'phone'=> $fullMobileNumber  ,
             'address'=>$request->address
         ]);
-
+       
 
 
 

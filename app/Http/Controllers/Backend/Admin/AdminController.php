@@ -42,6 +42,7 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
+        
 
         $request->validate([
             'name' => 'required|string|max:255',
@@ -51,11 +52,17 @@ class AdminController extends Controller
             'password' => 'required|string|min:8|confirmed',
         ]);
 
+        $data = $request->all() ;
+ 
+        $dialCode = $data['dial_code'];
 
-        $user= User::create([
+        // Concatenate the dial code and mobile number
+        $fullMobileNumber = $dialCode . $data['phone'];
+
+         $user= User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'phone' => $request->phone,
+            'phone' => $fullMobileNumber,
             'address' => $request->address,
             'password' => Hash::make($request->password),
 

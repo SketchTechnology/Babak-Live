@@ -70,12 +70,22 @@ class EmployerController extends Controller
             'job_title_id' => 'required|exists:job_titles,id',
          ]);
 
+
          $data = $request->all() ;
+
+  
+         $dialCode = $data['dial_code'];
+ 
+         // Concatenate the dial code and mobile number
+         $fullMobileNumber = $dialCode . $data['phone'];
+
+         $data['phone'] = $fullMobileNumber ;
+         
 
          $data['user_id']= Auth::id() ;
 
          $user_id = auth()->user()->id;
-
+ 
         $employer = Employer::create($data);
         // $employer->notify(new addEmployee($employer));
         // $users = User::all();

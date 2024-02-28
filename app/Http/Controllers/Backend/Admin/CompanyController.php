@@ -36,6 +36,7 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
+ 
         $validatedData = $request->validate([
             'name' => 'required|string',
             'ar_name' => 'required|string',
@@ -47,14 +48,17 @@ class CompanyController extends Controller
 
         $data = $request->all() ;
 
+ 
+        $dialCode = $data['dial_code'];
 
-
+        // Concatenate the dial code and mobile number
+        $fullMobileNumber = $dialCode . $data['mobile'];
 
         $company = Company::create([
             'name' => $data['name'],
             'name' => $data['ar_name'],
             'country_id' => $data['country_id'],
-            'mobile' => $data['mobile'],
+            'mobile' => $fullMobileNumber,
             'user_id' => $data['user_id'],
             'company_data' =>json_encode([
                 "regesterd" => $data['regesterd'],

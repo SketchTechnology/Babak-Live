@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="auto">
 <head>
+    <title>BABEK</title>
     <!-- Meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -57,7 +58,7 @@
     <div class="video-bg">
       <video width="320" height="240" autoplay loop muted>
         <source
-          src={{ asset('frontend/assets/img/vid2.mp4')}}
+          src={{ asset('frontend/assets/img/vid6.mp4')}}
           type="video/mp4"
         />
         Your browser does not support the video tag.

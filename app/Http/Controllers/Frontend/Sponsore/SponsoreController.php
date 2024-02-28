@@ -58,7 +58,19 @@ class SponsoreController extends Controller
             
             'relative_relation' => 'required|string',
         ]);
-        $sponsored = Sponsore::create($request->all());
+
+
+        $data = $request->all() ;
+
+  
+         $dialCode = $data['dial_code'];
+ 
+         // Concatenate the dial code and mobile number
+         $fullMobileNumber = $dialCode . $data['phone'];
+
+         $data['phone'] = $fullMobileNumber ;
+
+         $sponsored = Sponsore::create($data);
 
         return redirect()->route('sponsore.index')->with('success', 'Sponsore created successfully.');
     }

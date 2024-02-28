@@ -77,6 +77,9 @@ Route::post('/submissions/{id}/mark-as-completed', [TransactionController::class
     ->name('submissions.markAsCompleted');
 
 });
+
+Route::patch('/companies/{company}/mark-as-completed',[PendingController::class, 'markAsCompleted'])->name('companies.markAsCompleted');
+
 }) ;
 
 

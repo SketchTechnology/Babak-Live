@@ -6,7 +6,7 @@
 	<head>
 
 		<meta charset="utf-8">
-        <title>MOON - Absolute Coming Soon Template</title>
+        <title>BABEK SYSTEM</title>
         <meta name="description" content="The description should optimally be between 150-160 characters.">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Madeon08">
@@ -264,7 +264,10 @@ $company = $user->companies->first();
 
         </td>
 
-        @if($company && $company->registration_price == 0)
+     
+
+
+@if($company && $company->registration_price == 0)
 
         <td data-th="Status">
           Waiting
@@ -277,13 +280,13 @@ $company = $user->companies->first();
         </td>
 
 
-        @else
+        @elseif ($company->registration_price > 0 && $company->paid === 0)
 
         <td data-th="Status">
-          Approved
+          In Progress
         </td>
         <td data-th="Price">
-          ${{$company->registration_price}}
+          ${{$company->registration_price }}
         </td>
         <td data-th="Pay">
           <form action="pending/session" method="POST">
@@ -294,8 +297,38 @@ $company = $user->companies->first();
               {{__('Pay Now')}}
           </button>                   </form>
         </td>
-@endif
+        @elseif($company->paid === 1 && $company->completed === 0)
 
+        <td data-th="Status">
+          Admin Working On it
+        </td>
+        <td data-th="Price">
+          ${{$company->registration_price}}
+        </td>
+        <td data-th="Pay">
+          <form action="" method="get">
+           
+              <button  type="submit" id="" disabled>
+              {{__('Next')}}
+          </button>                   </form>
+        </td>
+
+        @else
+        <td data-th="Status">
+          Complted
+        </td>
+        <td data-th="Price">
+          ${{$company->registration_price}}
+        </td>
+        <td data-th="Pay">
+          <form action="/locked" method="get">
+           
+              <button  type="submit" id="checkout-live-button">
+              {{__('Next')}}
+          </button>                   </form>
+        </td>
+
+@endif
       </tr>
      
       

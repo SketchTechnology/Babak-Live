@@ -13,17 +13,21 @@ use Illuminate\Support\Facades\Session;
 class PendingController extends Controller
 {
     public function index()
-    {
-        $companies = Company::whereHas('user', function ($query) {
-            $query->where('status', 'pending');
-        })->with(['user' => function ($query) {
-            $query->where('status', 'pending');
-        }], 'country')->orderBy('created_at', 'desc')->get();
- 
-        return view('backend.pages.pendings.index', compact('companies'));
+{
+    $companies = Company::whereHas('user', function ($query) {
+        $query->where(function ($subQuery) {
+            $subQuery->where('status', 'pending')
+                      ->orWhere('status', 'inactive');
+        })->where('role', '!=', 'admin'); // Exclude admin users
+    })->with(['user' => function ($query) {
+        $query->where(function ($subQuery) {
+            $subQuery->where('status', 'pending')
+                      ->orWhere('status', 'inactive');
+        })->where('role', '!=', 'super_admin'); // Exclude admin users
+    }], 'country')->orderBy('created_at', 'desc')->get();
 
-        
-    }
+    return view('backend.pages.pendings.index', compact('companies'));
+}
 
 
     public function show($id)
@@ -99,6 +103,14 @@ class PendingController extends Controller
     
         Session::forget('total_amount');
     
-        return redirect()->route('dashboard');
+        return redirect('/pending');
     }
+
+
+    public function markAsCompleted(Company $company)
+{
+    $company->update(['completed' => true]);
+
+    return redirect()->back()->with('success', 'Company marked as completed successfully!');
+}
 }

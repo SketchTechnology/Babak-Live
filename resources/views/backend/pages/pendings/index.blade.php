@@ -61,6 +61,11 @@
                                     class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
                                     {{ __('Created At') }}
                                 </th>
+                                <th scope="col"
+                                    class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                                    {{ __('Actions') }}
+                                </th>
+                                
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
@@ -105,11 +110,22 @@
                                             <a href="{{ route('edit.pending', $company->id) }}"
                                                 class="text-white bg-blue-700 hover:bg-yellow-500 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">{{ __('Set Price') }}</a>
                                        
-
+                                                <td class="p-4 space-x-2 whitespace-nowrap flex">
+                                                    @if(!$company->completed)
+                                                        <form action="{{ route('companies.markAsCompleted', $company->id) }}" method="POST">
+                                                            @csrf
+                                                            @method('PATCH')
+                                                            <button type="submit" class="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-primary-800">{{ __('Mark as Completed') }}</button>
+                                                        </form>
+                                                    @else
+                                                        <span class="text-green-500">Completed</span>
+                                                    @endif
+                                                </td>
 
                                        
 
                                     </td>
+                                   
                                 </tr>
                             @endforeach
 
