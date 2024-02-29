@@ -227,7 +227,11 @@
             </li>
         @endforeach
     </ul> --}}
+    @php
+    use Illuminate\Support\Str;
+@endphp
 
+    @if(!Str::startsWith(request()->path(), 'form-builder'))
 
     <ul style="list-style-type: none; padding: 0; margin: 0; display: flex; justify-content: flex-end;">
       {{-- Flag for USA --}}
@@ -244,6 +248,8 @@
           </a>
       </li>
   </ul>
+  @endif
+
     </div>
 
 
