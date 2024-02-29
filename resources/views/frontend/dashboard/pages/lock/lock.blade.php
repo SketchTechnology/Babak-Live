@@ -63,26 +63,26 @@
 
 				   <div class="inside-content">
 
-					   <img src="https://i.ibb.co/bb91b0H/logo25.jpg" class="brand-logo" alt="My logo"  height="100px" />
+					   {{-- <img src="https://i.ibb.co/bb91b0H/logo25.jpg" class="brand-logo" alt="My logo"  height="100px" /> --}}
 
 					   <h1 class="cd-headline zoom">
 						   <span class="cd-words-wrapper">
 
 							   <b class="is-visible">
 									 نحن نفخر بتوفير تجربة مستخدم فائقة السلاسة<br/>
-								   <span class="highlight"> نحو مستقبل أفضل لشركتك 
+								   <span class="highlight" style="color: green;"> نحو مستقبل أفضل لشركتك 
 									  
 							   </b>
 
 
 
 
-							   <b>اشترك الآن في سيستم <span class="highlight">بابك</span>  لخدمات  
+							   <b>اشترك الآن في سيستم <span class="highlight" style="color: green;">بابك</span>  لخدمات  
 								   <br/>
 								   
 							   </b>
 
-							   <b> <span class="highlight">Babak System</span> &<br/>
+							   <b> <span class="highlight" style="color: green;">Babak System</span> &<br/>
 							  responsive<br/>
 								   on everything
 							   </b>
@@ -106,9 +106,9 @@
 				   <input type="hidden" name="_token" value="{{csrf_token()}}">
 				  <input type='hidden' name="total" value="10000">
 				  <input type='hidden' name="productname" value="Asus Vivobook 17 Laptop - Intel Core 10th">
-				  <button class="ibtn light-btn blink" type="submit" id="checkout-live-button">
-				   <i class="fa fa-money"></i> {{__('Subscribe Now')}}
-			   </button>                   </form>
+				  <button class="ibtn light-btn blink" type="submit" id="checkout-live-button" style="background-color: green;">
+					<i class="fa fa-money"></i> {{__('Subscribe Now')}}
+				</button>                   </form>
 
 
 			  

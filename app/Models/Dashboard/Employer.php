@@ -13,7 +13,7 @@ use App\Models\Nationality;
 class Employer extends Model
 {
     protected $table = 'employers';
-    protected $fillable = [ 'ar_name','en_name', 'user_id', 'company_id','phone', 'gender', 'email', 'job_title_id', 'nationality_id', 'country_id'];
+    protected $fillable = [ 'ar_name','en_name', 'user_id', 'company_id','phone', 'gender', 'email', 'job_title_id', 'nationality_id', 'country_id','job_title'];
 
     use HasFactory;
     public function user()

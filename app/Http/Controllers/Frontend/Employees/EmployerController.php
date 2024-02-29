@@ -67,7 +67,7 @@ class EmployerController extends Controller
             'company_id' => 'required|exists:companies,id',
             'gender' => 'required|in:male,female',
             'nationality_id' => 'required|exists:nationalities,id',
-            'job_title_id' => 'required|exists:job_titles,id',
+             'job_title'=>'nullable'
          ]);
 
 

@@ -86,7 +86,7 @@ use App\Models\Dashboard\Employer;
     $count = \Illuminate\Support\Facades\DB::table('form_submissions')->where('user_id', $user_id)->count();
 @endphp
 
-     <p class="mt-4 font-medium"><a href="{{ url('/dashboard/requests') }}">{{__('Applied Requests')}} </a> </p>
+     <p class="mt-4 font-medium"><a href="{{ url('/transactions') }}">{{__('Applied Requests')}} </a> </p>
      <p class="mt-2 text-xl font-medium">
         {{ $count }}
         <svg xmlns="http://www.w3.org/2000/svg" class="inline h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

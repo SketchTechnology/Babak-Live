@@ -7,7 +7,14 @@
     }
   }
 </style>
+
+@if(app()->getLocale() == 'ar')
+
 <div class="arabic p-4 bg-white block sm:flex items-center justify-between border-b border-gray-200 lg:mt-1.5 dark:bg-gray-800 dark:border-gray-700">
+    @else 
+    <div class=" p-4 bg-white block sm:flex items-center justify-between border-b border-gray-200 lg:mt-1.5 dark:bg-gray-800 dark:border-gray-700">
+    @endif
+{{-- <div class="arabic p-4 bg-white block sm:flex items-center justify-between border-b border-gray-200 lg:mt-1.5 dark:bg-gray-800 dark:border-gray-700"> --}}
     <div class="w-full mb-1">
         <div class="mb-4">
             <nav class="flex mb-5" aria-label="Breadcrumb">
@@ -38,7 +45,7 @@
 
     </div>
 </div>
-<form action="{{ route('search-sponsors') }}" method="GET">
+<form action="{{ route('search-sponsors') }}" method="GET" class="flex justify-center">
     @csrf
     <div class="flex items-center">
         <input type="text" name="employee_name" placeholder="{{__('Search by employee name')}}" class="border p-2 rounded-md focus:outline-none focus:border-primary-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300">
@@ -47,6 +54,7 @@
         </button>
     </div>
 </form>
+
 <div class="arabic flex flex-col">
     <div class="overflow-x-auto">
         <div class="inline-block min-w-full align-middle">

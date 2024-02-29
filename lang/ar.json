@@ -255,6 +255,7 @@
     "Abu Dhabi":"أبو ظبي",
     "Armenia":"أرمينيا",
     "Submit":"تأكيد",
+    "Search by employee name":"ابحث  بإسم الموظف",
     "Australia":"أستراليا",
     "FILE NAME":"اسم الملف",
     "START DATE":"تاريخ البدأ",
@@ -281,6 +282,7 @@
     "Requests": "الطلبات" ,
     "Requests Link": "الرابط" ,
     "Total Money In Your Wallet": "اجمالي المبلغ في المحفظة" ,
-    "Apply Filter": "الفلترة" ,
+    "Apply Filter": "التصنيف" ,
+    "Job Title": "اسم الوظيفة" ,
     "Company Owner ID": "الرقم التعريفي لمالك الشركة"
  }
