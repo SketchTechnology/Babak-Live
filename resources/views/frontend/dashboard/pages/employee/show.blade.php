@@ -69,13 +69,13 @@
                         <tr>
                        
                             <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
-                                FILE NAME
+                                {{__('FILE NAME')}}
                             </th>
                             <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
-                                START DATE
+                                  {{__('START DATE')}}
                             </th>
                             <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
-                                END DATE
+                                  {{__('END DATE')}}
                             </th>
                         </tr>
                     </thead>

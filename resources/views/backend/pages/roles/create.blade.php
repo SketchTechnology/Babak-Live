@@ -10,16 +10,18 @@
                 <input
                     id="Role_Name"
                     name="name"
-                    placeholder="Enter The Role Name"
+                    placeholder=" "
                     type="text"
                     value="{{ $role->name }}"
+                    required
                     class="mt-1 p-2 border rounded-md w-full focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out"
                 />
             </div>
 
 
               <fieldset>
-            <legend>{{ _('Abilities') }}</legend>
+             <label class="ml-2">{{__('Abilities')}}</label>
+
              @foreach (app('abilities') as $ability_code=>$ability_name )
              <div class="flex mb-2">
                 <div class="w-1/2">

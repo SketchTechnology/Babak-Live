@@ -44,93 +44,66 @@
                     <table class="min-w-full divide-y divide-gray-200 table-fixed dark:divide-gray-600">
                         <thead class="bg-gray-100 dark:bg-gray-700">
                             <tr>
-                             
-                                <th scope="col"
-                                    class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400 ">
+                                <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
                                     {{ __('Company Name') }}
                                 </th>
-                                <th scope="col"
-                                    class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                                <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
                                     {{ __('Company Owner') }}
                                 </th>
-                                <th scope="col"
-                                    class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                                <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
                                     {{ __('Status') }}
                                 </th>
-                                <th scope="col"
-                                    class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                                <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
                                     {{ __('Created At') }}
                                 </th>
-                                <th scope="col"
-                                    class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
-                                    {{ __('Actions') }}
+                                <th scope="col" class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                                   
                                 </th>
-                                
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
                             @foreach ($companies as $company)
-                                <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-                                  
-                                    <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400 text-left	">
-                                        <div class="text-base font-semibold text-gray-900 dark:text-white">
-                                            {{ $company->name }}</div>
-                                    </td>
-                                    <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white text-left	">
-                                        {{ $company->user->name }}</td>
-                                        <td class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400 text-left">
-                                            @if($company->paid == 0)
-                                                <span class="text-red-500">UnPaid</span>
-                                            @elseif($company->paid == 1)
-                                                <span class="text-green-500">Paid</span>
-                                            @else
-                                                <span class="text-gray-500">Unknown Status</span>
-                                            @endif
-                                        </td>
-                                        
-                                    <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white text-left	">
-                                        {{ $company->created_at }}</td>
-
-
-
-
-
-                                    <td class="p-4 space-x-2 whitespace-nowrap flex">
-
-
-
-
-
-                                        
-                                            <a href="{{ route('show.pending', $company->id) }}"
-                                                class="text-white bg-blue-700 hover:bg-yellow-500 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">{{ __('Review') }}</a>
-                                      
-
-                                       
-                                            <a href="{{ route('edit.pending', $company->id) }}"
-                                                class="text-white bg-blue-700 hover:bg-yellow-500 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">{{ __('Set Price') }}</a>
-                                       
-                                                <td class="p-4 space-x-2 whitespace-nowrap flex">
-                                                    @if(!$company->completed)
-                                                        <form action="{{ route('companies.markAsCompleted', $company->id) }}" method="POST">
-                                                            @csrf
-                                                            @method('PATCH')
-                                                            <button type="submit" class="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-primary-800">{{ __('Mark as Completed') }}</button>
-                                                        </form>
-                                                    @else
-                                                        <span class="text-green-500">Completed</span>
-                                                    @endif
-                                                </td>
-
-                                       
-
-                                    </td>
-                                   
-                                </tr>
+                            <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400 text-left">
+                                    <div class="text-base font-semibold text-gray-900 dark:text-white">
+                                        {{ $company->name }}</div>
+                                </td>
+                                <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white text-left">
+                                    {{ $company->user->name }}
+                                </td>
+                                <td class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-gray-400 text-left">
+                                    @if($company->paid == 0)
+                                    <span class="text-red-500">UnPaid</span>
+                                    @elseif($company->paid == 1)
+                                    <span class="text-green-500">Paid</span>
+                                    @else
+                                    <span class="text-gray-500">Unknown Status</span>
+                                    @endif
+                                </td>
+                                <td class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white text-left">
+                                    {{ $company->created_at }}
+                                </td>
+                                <td class="p-4 space-x-2 whitespace-nowrap flex">
+                                    <a href="{{ route('show.pending', $company->id) }}"
+                                        class="text-white bg-blue-700 hover:bg-yellow-500 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">{{ __('Review') }}</a>
+                                    <a href="{{ route('edit.pending', $company->id) }}"
+                                        class="text-white bg-blue-700 hover:bg-yellow-500 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">{{ __('Set Price') }}</a>
+                                    @if(!$company->completed)
+                                    <form action="{{ route('companies.markAsCompleted', $company->id) }}" method="POST">
+                                        @csrf
+                                        @method('PATCH')
+                                        <button type="submit"
+                                            class="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-primary-800">{{ __('Mark as Completed') }}</button>
+                                    </form>
+                                    @else
+                                    <span class="text-green-500">{{__('Completed')}}</span>
+                                    @endif
+                                </td>
+                            </tr>
                             @endforeach
-
                         </tbody>
                     </table>
+                    
                 </div>
             </div>
         </div>
